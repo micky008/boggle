@@ -45,7 +45,7 @@ public class Boggle {
         algo.resolv();
 
         System.out.println("");
-        System.out.println("mots trouvés:");
+        System.out.println("mots trouvés: " + algo.getAllFindingMots().size());
 
         for (String mot : algo.getAllFindingMots()) {
             System.out.println(mot);

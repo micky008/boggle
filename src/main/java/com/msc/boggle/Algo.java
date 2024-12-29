@@ -38,16 +38,33 @@ public class Algo {
         return mots;
     }
 
+    /**
+     * <pre>
+     * |-----------|---------|-----------|
+     * | x-1 ; y-1 | x ; y-1 | x+1 ; y-1 |
+     * |-----------|---------|-----------|
+     * | x-1 ; y   | x ; y   | x+1 ; y   |
+     * |-----------|---------|-----------|
+     * | x-1 ; y+1 | x ; y+1 | x+1 ; y+1 |
+     * |-----------|---------|-----------|
+     * </pre>
+     *
+     * @param x
+     * @param y
+     * @param mot
+     */
     private void recurs(int x, int y, String mot) {
         grilleEnCours[x][y] = grille[x][y];
         mot += grille[x][y];
         if (!noeud.exist(mot)) {
             grilleEnCours[x][y] = KO;
+            //print();
             return;
         }
         if (mot.length() > 2 && noeud.isMotComplet(mot)) {
             mots.add(mot);
         }
+        //--------------------------------
         if (casePossible(x - 1, y - 1)) {
             recurs(x - 1, y - 1, mot);
             grilleEnCours[x - 1][y - 1] = RIEN;
@@ -60,6 +77,7 @@ public class Algo {
             recurs(x + 1, y - 1, mot);
             grilleEnCours[x + 1][y - 1] = RIEN;
         }
+        //--------------------------------------
         if (casePossible(x - 1, y)) {
             recurs(x - 1, y, mot);
             grilleEnCours[x - 1][y] = RIEN;
@@ -68,6 +86,7 @@ public class Algo {
             recurs(x + 1, y, mot);
             grilleEnCours[x + 1][y] = RIEN;
         }
+        //----------------------------------------
         if (casePossible(x - 1, y + 1)) {
             recurs(x - 1, y + 1, mot);
             grilleEnCours[x - 1][y + 1] = RIEN;
@@ -98,6 +117,16 @@ public class Algo {
             return false;
         }
         return true;
+    }
+
+    private void print() {
+        System.out.println("---------------");
+        for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 4; y++) {
+                System.out.print(grilleEnCours[x][y]);
+            }
+            System.out.println();
+        }
     }
 
 }
