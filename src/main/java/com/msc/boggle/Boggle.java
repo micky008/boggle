@@ -18,9 +18,19 @@ public class Boggle {
     public static void main(String[] args) throws IOException {
         //char[][] grille = {{'S', 'X', 'L', 'E'}, {'D', 'H', 'A', 'R'}, {'E', 'T', 'R', 'D'}, {'E', 'U', 'I', 'S'}};
         //char[][] grille = {{'R', 'A', 'S', 'C'}, {'O', 'N', 'H', 'V'}, {'A', 'I', 'I', 'T'}, {'U', 'A', 'Z', 'N'}};
-        char[][] grille = {{'O', 'D', 'B', 'E'}, {'X', 'I', 'N', 'E'}, {'I', 'A', 'E', 'D'}, {'O', 'E', 'V', 'N'}};
+        //char[][] grille = {{'O', 'D', 'B', 'E'}, {'X', 'I', 'N', 'E'}, {'I', 'A', 'E', 'D'}, {'O', 'E', 'V', 'N'}};
+        char[][] grille = new char[4][4];
+        File grilleFile = new File("C:\\Users\\micky\\Pictures\\boggle\\tirage1\\grille.txt");
+        List<String> grilleString = FileUtils.readLines(grilleFile, "UTF-8");
+        int x = 0;
+        for (String line : grilleString) {
+            for (int y = 0; y < 4; y++) {
+                grille[x][y] = line.charAt(y);
+            }
+            x++;
+        }
 
-        File allmots = new File("C:\\Users\\micky\\Pictures\\boggle\\allmots.txt");
+        File allmots = new File("C:\\Users\\micky\\Pictures\\boggle\\ods6.txt");
         List<String> mots = FileUtils.readLines(allmots, "UTF-8");
 
         ManipNoeud mn = ManipNoeud.getInstance();
@@ -35,15 +45,14 @@ public class Boggle {
             System.out.println(mot);
         }
 
-        System.out.println("--------------------------------------");
-        System.out.println("liste.txt");
-        
-        File motTirage2 = new File("C:\\Users\\micky\\Pictures\\boggle\\tirage3\\liste.txt");
-        List<String> listMotTirage2 = FileUtils.readLines(motTirage2, "UTF-8");
-        listMotTirage2.sort((o1, o2) -> o1.compareTo(o2));
-          for (String mot : listMotTirage2) {
-            System.out.println(mot);
-        }
-
+//        System.out.println("--------------------------------------");
+//        System.out.println("liste.txt");
+//        
+//        File motTirage2 = new File("C:\\Users\\micky\\Pictures\\boggle\\tirage3\\liste.txt");
+//        List<String> listMotTirage2 = FileUtils.readLines(motTirage2, "UTF-8");
+//        listMotTirage2.sort((o1, o2) -> o1.compareTo(o2));
+//          for (String mot : listMotTirage2) {
+//            System.out.println(mot);
+//        }
     }
 }
