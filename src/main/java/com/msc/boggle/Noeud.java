@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author Michael
  */
-public class Noeud {
+class Noeud {
 
     public Noeud(char c) {
         this.c = c;

@@ -9,7 +9,7 @@ import org.apache.commons.io.FileUtils;
  *
  * @author Michael
  */
-public class Boggle {
+public class BoggleSolverMain {
 
     public static void main(String[] args) throws IOException {
         long timestart = System.currentTimeMillis();
