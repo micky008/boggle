@@ -7,7 +7,7 @@ import java.util.TreeSet;
  *
  * @author Michael
  */
-class Algo {
+public class Algo {
 
     private Set<String> mots = new TreeSet<>();
 
